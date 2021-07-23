@@ -371,8 +371,14 @@
     var deferredUpdate = function() {
       window.removeEventListener('resize', deferredUpdate);
       window.removeEventListener('orientationchange', deferredUpdate);
-      (self.options.wrapper ? self.options.wrapper : window).removeEventListener('scroll', deferredUpdate);
-      (self.options.wrapper ? self.options.wrapper : document).removeEventListener('touchmove', deferredUpdate);
+      (self.options.wrapper && !self.options.relativeToWrapper
+        ? self.options.wrapper
+        : window
+    ).removeEventListener('scroll', deferredUpdate);
+    (self.options.wrapper && !self.options.relativeToWrapper
+        ? self.options.wrapper
+        : document
+    ).removeEventListener('touchmove', deferredUpdate);
 
       // loop again
       loopId = loop(update);
