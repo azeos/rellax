@@ -180,6 +180,7 @@
     // Let's kick this script off
     // Build array for cached element values
     var init = function() {
+      console.log('custom');
       for (var i = 0; i < blocks.length; i++){
         self.elems[i].style.cssText = blocks[i].style;
       }
