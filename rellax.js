@@ -469,7 +469,7 @@
 
         // Move that element
         // (Set the new translation and append initial inline transforms.)
-        var translate = 'translate3d(' + (self.options.horizontal ? positionX : '0') + 'px,' + (self.options.vertical ? positionY : '0') + 'px,' + zindex + 'px) ' + blocks[i].transform;
+        var translate = 'translate3d(' + (self.options.horizontal ? positionX : '0') + 'px,' + (self.options.vertical ? positionY : '0') + 'px, var(--translateZ, ' + zindex + 'px)) ' + blocks[i].transform;
         self.elems[i].style[transformProp] = translate;
       }
       self.options.callback(positions);
